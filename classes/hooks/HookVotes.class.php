@@ -3,12 +3,26 @@
 /**
  * ShowVotes
  * by Stanislav Nevolin, stanislav@nevolin.info
+ * + Karel Wintersky
  */
 class PluginShowvotes_HookVotes extends Hook
 {
+    const ConfigKey = 'showvotes';
+    const HooksArray = [
+        'template_topic_show_info'  =>  'VotesShow',
+    ];
+
     public function RegisterHook()
     {
-        $this->AddHook('template_topic_show_info', 'VotesShow');
+        $plugin_config_key = $this::ConfigKey;
+        foreach ($this::HooksArray as $hook => $callback) {
+            $this->AddHook(
+                $hook,
+                $callback,
+                __CLASS__,
+                Config::Get("plugin.{$plugin_config_key}.hook_priority.{$hook}") ?? 1
+            );
+        }
     }
 
     public function VotesShow($aParams)

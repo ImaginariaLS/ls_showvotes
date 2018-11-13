@@ -7,9 +7,9 @@
         <lang name="default">Stanislav Nevolin (Wizard), Lora_GT</lang>
     </author>
     <homepage>https://github.com/snevolin/showvotes</homepage>
-    <version>0.5</version>
+    <version>0.7</version>
     <requires>
-        <livestreet>1.0.4</livestreet>
+        <livestreet>1.0.5</livestreet>
         <plugins>
         </plugins>
     </requires>
